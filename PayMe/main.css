@@ -2,32 +2,101 @@ body {
   background-image: url(images/background_money.jpg);
 }
 
-img {
-    border: none;
-	  vertical-align: middle
-    ;
-}
-
-div {
-  width: 1400px;
+.main {
+  width: 1350px;
   height: 700px;
   background: rgba(255, 255, 255, 0.5);
   /*position: fixed;*/
-  margin-left: 100px;
   overflow: hidden; /* prevents child margin moving the parent */
 }
 
-#camera_button_block {
-  width: 60px;
-  height: 50px;
+#welcome_block {
+  overflow: hidden;
+  font-family: tahoma;
+  width:400px;
+  height:20px;
+  background: rgba(234, 54, 66, 1);
+  margin-left: 500px;
+  margin-top: 50px;
+}
+
+.camera_button_block {
+  width: 70px;
+  height: 60px;
   margin-left: 650px;
-  margin-top: 300px;
+  margin-top: 100px;
   background: rgba(255, 255, 255, 1);
+}
+
+.camera_image {
+    background: url(images/camera_icon.png) no-repeat;
+    background-size: cover;
+    display: block;
+    position: relative;
+    margin-left: 5px;
+    width: 60px;
+    height: 60px;
+}
+
+.camera_button {
+  width: 70px;
+  height: 60px;
+  margin-right: 100px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.preview_img {
+  margin-top: 30px;
+  margin-left: 560px;
 
 }
 
-#camera_button {
-  width: 60px;
-  height: 50px;
+.grab_url {
+  margin-left: 655px;
+
+}
+#page1_block {
+  width:auto;
+  margin-left: 560px;
+  margin-top: 100px;
+}
+
+
+
+
+
+
+/* HERE IS FOR analyze_receipt.html */
+.person1 {
+  width:150px;
+  height:150px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.person2 {
+  width:150px;
+  height:150px;
+  margin-left: 200px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.person3 {
+  width:150px;
+  height:150px;
+  margin-left: 400px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.orange {
+
+}
+
+.blue {
+
+
+}
+
+.red {
 
 }
