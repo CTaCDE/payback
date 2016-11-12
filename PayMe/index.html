@@ -19,37 +19,51 @@
 
                 <h2>Preview:</h2>
                 <p>
-                    <img src="about:blank" alt="" id="show-picture">
+                    <img src="about:blank" alt="" id="show-picture" width="50%" height="50%">
                 </p>
 
                 <p id="error"></p>
 
-                
+
 
                 <p id="error"></p>
 
             </section>
 
         </div>
-        
+
         <div>
-                <button onclick="myFunction()">Grab URL</button>
+                <button onclick="grabURL()">Grab URL</button>
 
                 <p id="demo"></p>
 
                 <script>
-                    function myFunction() {
+                    function grabURL() {
                         var x = document.getElementById("show-picture").src;
                         document.getElementById("demo").innerHTML = x;
+
+                        //var canvas = document.getElementById("show-picture");
+                        //var dataURL = canvas.toDataURL();
+                        console.log("Finished Grabbing");
+
+                      //  toDataUrl(x, function(base64Img) {
+                    //      console.log(base64Img);
+                    //    });
                     }
+                  /*  function convertBlobToString(){
+                      var x = document.getElementById("show-picture").src;
+                      var y =
+                      document.getElementById("demo").innerHTML = ;
+                    }
+                    */
                 </script>
 
         </div>
 
-        <script src="script.js"></script>
+        <script src="script.js"></script>z
 
-                
-                
+
+
             </section>
 
         </div>
@@ -64,5 +78,4 @@
     background-image: url(show-picture);
   </body>
 </style>
-
 </html>
