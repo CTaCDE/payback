@@ -71,32 +71,54 @@ body {
 .person1 {
   width:150px;
   height:150px;
+  margin-top: 250px;
+  margin-left: 400px;
   background: rgba(255, 255, 255, 1);
+  overflow: hidden;
 }
 
 .person2 {
   width:150px;
   height:150px;
-  margin-left: 200px;
+  margin-top: -150px;
+  margin-left: 600px;
   background: rgba(255, 255, 255, 1);
+  overflow: hidden;
 }
 
 .person3 {
   width:150px;
   height:150px;
-  margin-left: 400px;
+  margin-top: -150px;
+  margin-left: 800px;
   background: rgba(255, 255, 255, 1);
+  overflow: hidden;
 }
 
 .orange {
-
+  width:30px;
+  height:30px;
+  margin-top: 10px;
+  margin-left: 60px;
+  margin-bottom: 10px;
+  background-color: orange;
 }
 
 .blue {
-
+  width:30px;
+  height:30px;
+  margin-top: 10px;
+  margin-left: 60px;
+  margin-bottom: 10px;
+  background-color: blue;
 
 }
 
 .red {
-
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 60px;
+  margin-bottom: 10px;
+  background-color: red;
 }
