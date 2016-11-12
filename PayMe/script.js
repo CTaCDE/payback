@@ -1,3 +1,17 @@
+function toDataUrl(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = function() {
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      callback(reader.result);
+    }
+    reader.readAsDataURL(xhr.response);
+  };
+  xhr.open('GET', url);
+  xhr.send();
+}
+
 (function () {
     var takePicture = document.querySelector("#take-picture"),
         showPicture = document.querySelector("#show-picture");
@@ -11,7 +25,7 @@
             if (files && files.length > 0) {
                 file = files[0];
                 try {
-                    // Create ObjectURL
+        /*            // Create ObjectURL
                     var imgURL = window.URL.createObjectURL(file);
 
                     // Set img src to ObjectURL
@@ -20,7 +34,13 @@
                     // Revoke ObjectURL
                     URL.revokeObjectURL(imgURL);
 
-                    
+
+                      */
+                      var fileReader = new FileReader();
+                      fileReader.onload = function (event) {
+                          showPicture.src = event.target.result;
+                      };
+                      fileReader.readAsDataURL(file);
                 }
                 catch (e) {
                     try {
