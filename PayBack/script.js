@@ -1,5 +1,8 @@
 // x-coordinate of the left edge, the y-coordinate of the top edge, width, and height
 // Just returns the x,y of the top edge
+var imgUrlGlobal;
+var dummyVal;
+
 function calcBoxCentroid(boxStr) {
     var str_coords = boxStr.split(",");
     var int_coords = [];
@@ -7,12 +10,12 @@ function calcBoxCentroid(boxStr) {
     for(var c in str_coords) {
         int_coords.push(parseInt(str_coords[c]));
     }
-    
+
     console.log(int_coords);
-    
+
     return [int_coords[0], int_coords[1]];
-    
-    
+
+
 }
 
 // Parse JSON and return a list of box objects in following form:
@@ -20,16 +23,16 @@ function calcBoxCentroid(boxStr) {
 
 function generateBoxObjects(wordAr) {
     var boxAr = [];
-    
+
     for(var w in wordAr) {
         var centroid = calcBoxCentroid(wordAr[w].boundingBox);
         var coords = {"X": centroid[0], "Y": centroid[1]};
-        
+
         var boxObj = {"coords": coords, text: wordAr[w].text};
-        
+
         boxAr.push(boxObj);
     }
-    
+
     return boxAr;
 }
 
@@ -45,7 +48,7 @@ function extractAllWords(JSON) {
                 for(var w in JSON.regions[r].lines[l].words) { // each word in each box
                     allWords.push(JSON.regions[r].lines[l].words[w]);
                 }
-                
+
             }
         }
     } else {
@@ -55,7 +58,7 @@ function extractAllWords(JSON) {
     for(var z in allWords) {
         console.log(allWords[z]);
     }
-    
+
     return allWords
 }
 
@@ -67,7 +70,7 @@ function calculateAlignments(boxes) {
     for(var i = 0; i < boxes.length; i++) {
         var line = [];
         line.push(boxes[i]);
-        
+
         for(var ii = i+1; ii < boxes.length && (Math.abs(boxes[i].coords.Y - boxes[ii].coords.Y) < VERTICAL_DIFFERENCE_THRESHOLD); ii++) {
 
             console.log("HIT");
@@ -77,7 +80,7 @@ function calculateAlignments(boxes) {
         line = sortByX(line);
         lines.push(line);
     }
-    
+
     return lines;
 }
 
@@ -91,7 +94,7 @@ function sortByY(values) {
     }
     values[j+1] = temp;
   }
-  
+
   return values;
 }
 
@@ -105,7 +108,7 @@ function sortByX(values) {
     }
     values[j+1] = temp;
   }
-  
+
   return values;
 }
 
@@ -114,19 +117,19 @@ function sortByX(values) {
 function squash(input) {
     var lines = [];
     // console.log(input);
-    
+
     for(var i = 0; i < input.length; i++) {
         var line = "";
         console.log(input[i].length);
-        
+
         for(var ii = 0; ii < input[i].length; ii++) {
             line = line.concat((input[i][ii]).text, " ");
             console.log(input[i][ii].text);
         }
-        
+
         lines.push(line);
     }
-    
+
     return lines;
 }
 
@@ -138,7 +141,7 @@ function callFuckingAPI(imageData) {
         "language": "unk",
         "detectOrientation ": "true",
     };
-  
+
     $.ajax({
         url: "https://api.projectoxford.ai/vision/v1.0/ocr?" + $.param(params),
         beforeSend: function(xhrObj){
@@ -193,7 +196,7 @@ function parseLines(s) {
       filteredLines.push(s[i]);
     }
   }
-  
+
   parsedLines = [];
   re = /(.*\s*)\s\$(.*)/
   for(var i = 0; i < filteredLines.length; i++) {
@@ -205,12 +208,12 @@ function parseLines(s) {
     if(match[1] === null || match[2] === null ) {
       console.log("Error ocurred in parseLines");
     }
-    
+
     p = {"item": match[1], "price": parseFloat(match[2])};
-    
+
     parsedLines.push(p);
   }
-  
+
   return parsedLines;
 }
 
@@ -388,3 +391,26 @@ function dummyOcrRoutine(imageData) {
 
   return parsedLines;
 }
+
+function switchToAnalyzer(){
+   dummyVal = dummyOcrRoutine(grabURL());
+  setTimeout(function(){location.href="analyze_receipt.html"} , 400);
+}
+
+function grabURL() {
+  var x = document.getElementById("show-picture").src;
+  // document.getElementById("demo").innerHTML = x;
+  console.log("Finished Grabbing");
+  imgUrlGlobal = x;
+  console.log(x);
+}
+
+function testOnLoad(){
+  console.log(imgUrlGlobal);
+  console.log(dummyVal);
+}
+
+window.onload = function() {
+  dummyOcrRoutine(grabURL());
+  console.log(  dummyOcrRoutine(grabURL()));
+};
