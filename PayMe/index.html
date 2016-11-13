@@ -1,86 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Payback</title>
-        <link rel="stylesheet" href="main.css" type="text/css" media="screen">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Pay Me</title>
+  </head>
 
-    </head>
+  <div class="main">
+    <div id="welcome_block">
+      Welcome to Pay Me! First, take a picture of your reciept.
+    </div>
 
-    <body>
+    <div class="camera_button_block">
+      <span class="camera_image">
+        <input type="file" class="camera_button" id="take-picture"/>
+      </span>
+      <br />
 
-        <div class="container">
-            <h1>Payback</h1>
-
-            <section class="main-content">
-
-                <p>
-                    <input type="file" id="take-picture" accept="image/*">
-                </p>
-
-                <h2>Preview:</h2>
-                <p>
-                    <img src="about:blank" alt="" id="show-picture" width="50%" height="50%">
-                </p>
-
-                <p id="error"></p>
-
-
-
-                <p id="error"></p>
-
-            </section>
-
-        </div>
-
-        <div>
-                <button onclick="grabURL()">Grab URL</button>
-
-                <p id="demo"></p>
-
-                <script>
-                    function grabURL() {
-                        var x = document.getElementById("show-picture").src;
-                        document.getElementById("demo").innerHTML = x;
-                        lines = ocrRoutine(x);
-                        document.body.innerHTML = lines;
-
-
-                        //var canvas = document.getElementById("show-picture");
-                        //var dataURL = canvas.toDataURL();
-                        console.log("Finished Grabbing");
-
-                      //  toDataUrl(x, function(base64Img) {
-                    //      console.log(base64Img);
-                    //    });
-                    }
-                  /*  function convertBlobToString(){
-                      var x = document.getElementById("show-picture").src;
-                      var y =
-                      document.getElementById("demo").innerHTML = ;
-                    }
-                    */
-                </script>
-
-        </div>
-
-        <script src="script.js"></script>z
-
-
-
-            </section>
-
-        </div>
-
-
-        <script src="script.js"></script>
-
-
-    </body>
-<style>
+            <!-- <img src="about:blank" alt="" id="show-picture" width="50%" height="50%">
+                 <button id="camera_button" type="button" name="button">
+                 </button>
+            -->
+    </div>
+    <div class="preview_img">
+      <img src="about:blank" alt="" id="show-picture" width="250" height="250">
+      <script src="script.js"></script>
+    </div>
+    <!-- THIS IS WHERE YOU GRAB THE DATA FILE STRING
+    <div class="grab_url">
+      <button onclick="grabURL()">Grab URL</button>
+      <p id="demo"></p>
+      <script>
+        function grabURL() {
+          var x = document.getElementById("show-picture").src;
+          document.getElementById("demo").innerHTML = x;
+          console.log("Finished Grabbing");
+        }
+      </script>
+      <script src="script.js"></script>
+    </div>
+    -->
+    <div id="page1_block">
+      <button onclick="location.href='analyze_receipt.html'" type="button" name="next_link">
+        <!-- <input type="file" id="camera_button" accept="image/*"> -->
+        Click here after you have uploaded the receipt.
+      </button>
+    </div>
+  </div>
   <body>
-    background-image: url(show-picture);
+
   </body>
-</style>
 </html>

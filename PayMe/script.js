@@ -224,14 +224,10 @@ function parseLines(s) {
                 try {
         /*            // Create ObjectURL
                     var imgURL = window.URL.createObjectURL(file);
-
                     // Set img src to ObjectURL
                     showPicture.src = imgURL;
-
                     // Revoke ObjectURL
                     URL.revokeObjectURL(imgURL);
-
-
                       */
                       var fileReader = new FileReader();
                       fileReader.onload = function (event) {
