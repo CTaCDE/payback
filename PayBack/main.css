@@ -1,5 +1,5 @@
 body {
-  background-image: url(images/background_money.jpg);
+  background-image: url(images/stripes.jpg);
 }
 
 
@@ -13,6 +13,16 @@ body {
   overflow: hidden; /* prevents child margin moving the parent */
 }
 
+#tableForm {
+  overflow: hidden;
+  font-family: tahoma;
+  font-size : 150%;
+  margin-bottom: 40px;
+  text-align: center;
+
+  float: center;
+  
+}
 
 #welcome_block {
   overflow: hidden;
@@ -33,7 +43,7 @@ body {
   width : 200px;
   height : 200px;
   position:absolute;
-  margin-left: 45%;
+  margin-left: 42%;
 
 }
 

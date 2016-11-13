@@ -394,7 +394,8 @@ function dummyOcrRoutine(imageData) {
 
 function switchToAnalyzer(){
    dummyVal = dummyOcrRoutine(grabURL());
-  setTimeout(function(){location.href="analyze_receipt.html"} , 400);
+   scrollTable();
+  //setTimeout(function(){location.href="analyze_receipt.html"} , 400);
 }
 
 function grabURL() {
@@ -414,3 +415,26 @@ window.onload = function() {
   dummyOcrRoutine(grabURL());
   console.log(  dummyOcrRoutine(grabURL()));
 };
+
+function scrollTable(){
+  document.getElementById( 'splitTable' ).scrollIntoView();
+  numPeople = 1;
+}
+
+var numPeople;
+
+function addRowTable() {
+    var table = document.getElementById("splitTable");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = numPeople;
+    var element2 = document.createElement("select");
+    numPeople= numPeople + 1;
+  //  var option.value = document.createElement("option");
+
+    //option.value="=">equals</option>;
+    //option.value="<>">does not equal</option>;
+    cell2.appendChild(element2);
+}

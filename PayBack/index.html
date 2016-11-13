@@ -52,6 +52,40 @@
         Click here after you have uploaded the receipt.
       </button>
     </div>
-  </div>
 
+<!--
+    <div>
+      <form>
+        <label for="movie">Enter number of ways to split the Bill : </label><input id="numbSplit" type="number" value="0" min = "0" max = "30"/>
+        <input type="submit" value="Submit"/>
+      </form>
+      <br>
+      <br>
+    </div>
+-->
+    <div id = "tableForm">
+      <style>
+      table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+      </style>
+      <table id="splitTable" align = "center">
+        <tr>
+          <td> Person </td>
+          <td> Item </td>
+          <td> Cost </td>
+        </tr>
+        <tr>
+          <td>Main Payer</td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </table>
+
+      <button onclick="addRowTable()">Add Person</button>
+    </div>
+
+  </div>
 </html>
