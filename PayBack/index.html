@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>Pay Me</title>
-  </head>
+</head>
 
-  <div class="main">
-    <img src = "images/payback_logo.PNG"  id = "logo">
+<div class="main">
+    <img src="images/payback_logo.PNG" id="logo">
 
     <div id="welcome_block">
 
-      <h1>It's Time for PayBack!</h1>
-      <h3>First, take a picture of your reciept</h3>
+        <h1>It's Time for PayBack!</h1>
+        <h3>First, take a picture of your reciept</h3>
 
     </div>
 
@@ -20,16 +21,16 @@
       <span class="camera_image">
         <input type="file" class="camera_button" id="take-picture"/>
       </span>
-      <br />
+        <br />
 
-            <!-- <img src="about:blank" alt="" id="show-picture" width="50%" height="50%">
+        <!-- <img src="about:blank" alt="" id="show-picture" width="50%" height="50%">
                  <button id="camera_button" type="button" name="button">
                  </button>
             -->
     </div>
     <div class="preview_img">
-      <img src="about:blank" alt="" id="show-picture" width="250" height="250">
-      <script src="script.js"></script>
+        <img src="about:blank" alt="" id="show-picture" width="250" height="250">
+        <script src="script.js"></script>
     </div>
     <!-- THIS IS WHERE YOU GRAB THE DATA FILE STRING
     <div class="grab_url">
@@ -45,15 +46,13 @@
       <script src="script.js"></script>
     </div>
     -->
-    <div id="page1_block">
-    <!--  <p id =  demo> </p> -->
-      <button onclick="switchToAnalyzer()" type="button" name="next_link">
-        <!-- <input type="file" id="camera_button" accept="image/*"> -->
-        Click here after you have uploaded the receipt.
-      </button>
+    <div class="page1_block">
+        <span class="submit">
+          <input onclick="switchToAnalyzer()" type="button" class="submit_button"/>
+        </span>
     </div>
 
-<!--
+    <!--
     <div>
       <form>
         <label for="movie">Enter number of ways to split the Bill : </label><input id="numbSplit" type="number" value="0" min = "0" max = "30"/>
@@ -63,29 +62,37 @@
       <br>
     </div>
 -->
-    <div id = "tableForm">
-      <style>
-      table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-      }
-      </style>
-      <table id="splitTable" align = "center">
-        <tr>
-          <td> Person </td>
-          <td> Item </td>
-          <td> Cost </td>
-        </tr>
-        <tr>
-          <td>Main Payer</td>
-          <td></td>
-          <td></td>
-        </tr>
+    <div id="tableForm">
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+        <table id="splitTable" align="center">
+            <tr>
+                <td> Person </td>
+                <td> Item </td>
+                <td> Cost </td>
+            </tr>
+            <tr>
+                <td>Main Payer</td>
+                <td></td>
+                <td></td>
+            </tr>
 
-      </table>
+        </table>
 
-      <button onclick="addRowTable()">Add Person</button>
+        <div class="add_person">
+            <span class="add_person_image">
+              <input onclick="addRowTable()" type="button" class="add_person_button"/>
+            </span>
+        </div>
+        
     </div>
 
-  </div>
+</div>
+
 </html>
