@@ -17,11 +17,13 @@ body {
   overflow: hidden;
   font-family: tahoma;
   font-size : 150%;
+  margin-top: 3%;
+  margin-left: -20px;
   margin-bottom: 40px;
   text-align: center;
 
   float: center;
-  
+
 }
 
 #welcome_block {
@@ -47,7 +49,7 @@ body {
 
 }
 
-
+/* Camera Button */
 .camera_button_block {
   width: 100%;
   height: 100%;
@@ -74,6 +76,7 @@ body {
   filter: alpha(opacity=0);
 }
 
+/* Preview Image Taken */
 .preview_img {
   margin-top: 5%;
   margin-left: 41%;
@@ -87,13 +90,58 @@ body {
 
 }
 
-#page1_block {
-  width:auto;
-  margin-left: 40%;
-  margin-top: 5%;
+
+/* Submit Photo Button */
+.page1_block {
+  width: 10%;
+  height: 10%;
+  margin-left: 10%;
+  margin-top: 3%;
+  background: rgba(255, 255, 255, 1);
 }
 
+.submit {
+  background: url(images/submit.png) no-repeat;
+  background-size: cover;
+  display: block;
+  position: relative;
+  margin-left: 550px;
+  width: 110px;
+  height: 40px;
+}
 
+.submit_button {
+  width: 400px;
+  height: 250px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+/* Add Person Button */
+.add_person {
+  width: 10%;
+  height: 10%;
+  margin-left: 10%;
+  margin-top: 1%;
+  background: rgba(255, 255, 255, 1);
+}
+
+.add_person_image {
+  background: url(images/submit_party_button.png) no-repeat;
+  background-size: cover;
+  display: block;
+  position: relative;
+  margin-left: 535px;
+  width: 140px;
+  height: 40px;
+}
+
+.add_person_button {
+  width: 400px;
+  height: 250px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
 
 
 
