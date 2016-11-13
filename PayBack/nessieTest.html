@@ -5,7 +5,7 @@ function getCustomers() {
 	$.ajax({
 	    url: 'http://api.reimaginebanking.com/customers?key=c6ab2e123a0c7d7b5a693a9fa7721271',
 	    success: function(results){
-	        console.log(results);
+	        document.getElementById("results").innerHTML = JSON.stringify(results);
 	    }
 	});
 }
@@ -25,7 +25,7 @@ function injectCustomer() {
 
 	console.log(userJSON);
 
-	$.post({
+	$.ajax({
 	    url: "http://api.reimaginebanking.com/customers?key=c6ab2e123a0c7d7b5a693a9fa7721271",
 	    success: function(results) {
 	        console.log(results);
@@ -33,15 +33,56 @@ function injectCustomer() {
 	    error: function(results) {
 	    	console.log(results);
 	    },
-	    
+	    method: "POST",
 	    body: userJSON
 	});
 }
 
+function listAccounts() {
+	$.ajax({
+	    url: "http://api.reimaginebanking.com/accounts?key=c6ab2e123a0c7d7b5a693a9fa7721271",
+	    success: function(results) {
+	        document.getElementById("results").innerHTML = JSON.stringify(results);
+	    },
+	    error: function(results) {
+	    	console.log(results);
+	    },
+	    method: "GET"
+	});
+}
+
+function transferFromBrianToSteve() {
+	j = {
+		  medium: "balance",
+		  payee_id: "5827fec6360f81f10454a8bd",
+		  amount: 10000,
+		  description: "dummy transfer"
+	}
+
+
+	$.ajax({
+	    url: "http://api.reimaginebanking.com/accounts/5827fee4360f81f10454a8be/transfers?key=c6ab2e123a0c7d7b5a693a9fa7721271",
+	    success: function(results) {
+	        document.getElementById("results").innerHTML = JSON.stringify(results);
+	    },
+	    error: function(results) {
+	    	console.log(results);
+	    },
+	    method: "POST",
+	    contentType: 'application/json',
+	    data: JSON.stringify(j)
+	});
+}
 
 </script>
 
 <html>
 <body>
+	<input type="button" value="list customers" onclick="getCustomers();">
 	<input type="button" value="inject customer" onclick="injectCustomer();">
+	<input type="button" value="list accounts" onclick="listAccounts();">
+	<input type="button" value="rob Brian" onclick="transferFromBrianToSteve();">
+	<div id="results">
+		results
+	</div>
 </body>

@@ -303,6 +303,18 @@ function dummyOcrRoutine(imageData) {
               {
                 "boundingBox": "1104,1152,536,192",
                 "text": "Black"
+              },
+              {
+                "boundingBox": "1105,1152,536,192",
+                "text": "Bean"
+              },
+              {
+                "boundingBox": "1106,1152,536,192",
+                "text": "Chicken"
+              },
+              {
+                "boundingBox": "1107,1152,536,192",
+                "text": "Promo"
               }
             ]
           },
