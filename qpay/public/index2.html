@@ -1,0 +1,43 @@
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>
+
+// Brian account id = 5827fee4360f81f10454a8be
+function testTransfer(){transferToSteve("5827fee4360f81f10454a8be", 10000);}
+
+function transferToSteve(payerID, amount) {
+	j = {
+		  medium: "balance",
+		  payee_id: "5827fec6360f81f10454a8bd",
+		  amount: amount,
+		  description: "transfer to steve"
+	}
+
+	key = "c6ab2e123a0c7d7b5a693a9fa7721271";
+
+	url = "http://api.reimaginebanking.com/accounts/";
+	url = url + payerID;
+	url = url + "/transfers?key=";
+	url = url + key;
+
+
+	$.ajax({
+	    url: url,
+	    success: function(results) {
+	        console.log(JSON.stringify(results));
+	    },
+	    error: function(results) {
+	    	console.log(results);
+	    },
+	    method: "POST",
+	    contentType: 'application/json',
+	    data: JSON.stringify(j)
+	});
+}
+
+</script>
+
+<body>
+	<input type="button" value="list customers" onclick="testTransfer();">
+</body>
+</html>

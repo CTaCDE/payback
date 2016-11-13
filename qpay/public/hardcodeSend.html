@@ -1,0 +1,33 @@
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>
+
+function transferFromBrianToSteve() {
+	j = {
+		  medium: "balance",
+		  payee_id: "5827fec6360f81f10454a8bd",
+		  amount: 6.00,
+		  description: "Black Bean Combo"
+	}
+
+
+	$.ajax({
+	    url: "http://api.reimaginebanking.com/accounts/5827fee4360f81f10454a8be/transfers?key=c6ab2e123a0c7d7b5a693a9fa7721271",
+	    success: function(results) {
+	        document.getElementById("results").innerHTML = JSON.stringify(results);
+	    },
+	    error: function(results) {
+	    	console.log(results);
+	    },
+	    method: "POST",
+	    contentType: 'application/json',
+	    data: JSON.stringify(j)
+	});
+}
+
+</script>
+
+<body onload="transferFromBrianToSteve()">
+	Payment sent to Steven for $6.00
+</body>
+</html>
