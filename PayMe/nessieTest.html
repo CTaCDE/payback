@@ -1,0 +1,47 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>
+
+function getCustomers() {
+	$.ajax({
+	    url: 'http://api.reimaginebanking.com/customers?key=c6ab2e123a0c7d7b5a693a9fa7721271',
+	    success: function(results){
+	        console.log(results);
+	    }
+	});
+}
+
+function injectCustomer() {
+	userJSON = {
+				  first_name: "Bilbo",
+				  last_name: "Schwaggins",
+				  address: {
+				    street_number: "lel",
+				    street_name: "heh",
+				    city: "kek",
+				    state: "CA",
+				    zip: "95616"
+				  }
+	};
+
+	console.log(userJSON);
+
+	$.post({
+	    url: "http://api.reimaginebanking.com/customers?key=c6ab2e123a0c7d7b5a693a9fa7721271",
+	    success: function(results) {
+	        console.log(results);
+	    },
+	    error: function(results) {
+	    	console.log(results);
+	    },
+	    
+	    body: userJSON
+	});
+}
+
+
+</script>
+
+<html>
+<body>
+	<input type="button" value="inject customer" onclick="injectCustomer();">
+</body>
