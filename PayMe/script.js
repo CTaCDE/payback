@@ -197,8 +197,12 @@ function parseLines(s) {
   parsedLines = [];
   re = /(.*\s*)\s\$(.*)/
   for(var i = 0; i < filteredLines.length; i++) {
-    match = re.exec(filteredLines[i]);
-    if(match[1] === null || match[2] === null) {
+    var match = re.exec(filteredLines[i]);
+    if(match === null) {
+      console.log("parseLines for " + filteredLines[i] + " returned empty");
+      continue;
+    }
+    if(match[1] === null || match[2] === null ) {
       console.log("Error ocurred in parseLines");
     }
     
@@ -257,3 +261,130 @@ function parseLines(s) {
         };
     }
 })();
+
+
+function dummyOcrRoutine(imageData) {
+  var ocrResults = {
+    "language": "en",
+    "textAngle": 0,
+    "orientation": "Up",
+    "regions": [
+      {
+        "boundingBox": "384,144,2428,2255",
+        "lines": [
+          {
+            "boundingBox": "432,144,1232,192",
+            "words": [
+              {
+                "boundingBox": "432,144,704,192",
+                "text": "10/8/16"
+              },
+              {
+                "boundingBox": "1264,152,400,176",
+                "text": "7:02."
+              }
+            ]
+          },
+          {
+            "boundingBox": "384,640,392,176",
+            "words": [
+              {
+                "boundingBox": "384,640,392,176",
+                "text": "30"
+              }
+            ]
+          },
+          {
+            "boundingBox": "1104,1152,536,192",
+            "words": [
+              {
+                "boundingBox": "1104,1152,536,192",
+                "text": "Black"
+              }
+            ]
+          },
+          {
+            "boundingBox": "1090,1415,746,186",
+            "words": [
+              {
+                "boundingBox": "1090,1415,746,186",
+                "text": "Coconut"
+              }
+            ]
+          },
+          {
+            "boundingBox": "1860,1944,952,189",
+            "words": [
+              {
+                "boundingBox": "1860,1944,525,189",
+                "text": "Black"
+              },
+              {
+                "boundingBox": "2514,1944,298,184",
+                "text": "Tea"
+              }
+            ]
+          },
+          {
+            "boundingBox": "1856,2210,494,189",
+            "words": [
+              {
+                "boundingBox": "1856,2210,494,189",
+                "text": "Pearl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "boundingBox": "4336,120,576,1768",
+        "lines": [
+          {
+            "boundingBox": "4336,120,537,176",
+            "words": [
+              {
+                "boundingBox": "4336,120,537,176",
+                "text": "Karen"
+              }
+            ]
+          },
+          {
+            "boundingBox": "4347,1181,557,186",
+            "words": [
+              {
+                "boundingBox": "4347,1181,557,186",
+                "text": "$6.00"
+              }
+            ]
+          },
+          {
+            "boundingBox": "4352,1432,560,192",
+            "words": [
+              {
+                "boundingBox": "4352,1432,560,192",
+                "text": "$0.00"
+              }
+            ]
+          },
+          {
+            "boundingBox": "4360,1696,544,192",
+            "words": [
+              {
+                "boundingBox": "4360,1696,544,192",
+                "text": "$2.50"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  var words = extractAllWords(ocrResults);
+  var boxes = generateBoxObjects(words);
+  var sorted = sortByY(boxes);
+  var aligned = calculateAlignments(sorted);
+  var lines = squash(aligned);
+  var parsedLines = parseLines(lines);
+
+  return parsedLines;
+}
