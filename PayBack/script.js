@@ -450,3 +450,33 @@ function addRowTable() {
     //option.value="<>">does not equal</option>;
     cell2.appendChild(element2);
 }
+
+
+var numPeople;
+var myDummyVals = {
+    ValueA : 'Black Bean Chicken Combo',
+    ValueB : 'Coconut',
+    ValueC : 'Ice Milk Tea '
+};
+
+function addRowTable() {
+    var table = document.getElementById("splitTable");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = numPeople;
+    var element2 = document.createElement("select");
+    numPeople= numPeople + 1;
+    for(index in dummyVal) {
+      element2.options[element2.options.length] = new Option(dummyVal[index].item, index);
+    }
+  //  var option.value = document.createElement("option");
+
+    //option.value="=">equals</option>;
+    //option.value="<>">does not equal</option>;
+    cell2.appendChild(element2);
+}
+
+function displayQR(){
+  document.getElementById( 'qr' ).scrollIntoView();
+}
