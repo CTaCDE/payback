@@ -178,8 +178,9 @@ function ocrRoutine(imageData) {
   var sorted = sortByY(boxes);
   var aligned = calculateAlignments(sorted);
   var lines = squash(aligned);
+  var parsedLines = parseLines(lines);
 
-  return lines;
+  return parsedLines;
 }
 
 // Parse lines into a usable JSON (OCR is done at this point)
